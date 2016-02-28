@@ -1,1 +1,1 @@
-README.md
+[![Build Status](https://travis-ci.org/lancew/ScientistP6.svg?branch=master)](https://travis-ci.org/lancew/ScientistP6)
