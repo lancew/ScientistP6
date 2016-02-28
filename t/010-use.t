@@ -3,6 +3,6 @@ use Test;
 use lib 'lib';
 use Scientist;
 
-pass "ok";
+pass "Scientist loaded OK";
 
 done-testing;
