@@ -3,7 +3,6 @@ unit class Scientist;
 has %.context is rw;
 has Bool $.enabled is rw;
 has $.experiment is rw;
-has %!result;
 has &.try is rw;
 has &.use is rw;
 
@@ -13,13 +12,13 @@ method publish {
     # Requires populating to be useful.
 }
 
+my %result;
+method result {
+    return %result;
+}
+
 method run {
     return &.use.() unless ?$.enabled;
-
-    %!result = (
-        context    => %.context,
-        experiment => $.experiment,
-    );
 
     my ( $control, $candidate );
     my $run_control = sub {
@@ -38,6 +37,12 @@ method run {
         $run_candidate.();
         $run_control.();
     }
+
+    %result = (
+        context    => %.context,
+        experiment => $.experiment,
+        mismatched => !($control eqv $candidate),
+    );
 
     return $control;
     
