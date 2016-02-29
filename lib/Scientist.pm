@@ -6,9 +6,7 @@ has $.experiment is rw;
 has &.try is rw;
 has &.use is rw;
 
-method ver { v0.0.1 }
-
-method publish {
+method publish (%result) {
     # Requires populating to be useful.
 }
 
@@ -47,6 +45,8 @@ method run {
         $run_control.();
     }
     %result{'mismatched'} = $control !eqv $candidate;
+
+    $.publish(%result);
 
     return $control;
 }
