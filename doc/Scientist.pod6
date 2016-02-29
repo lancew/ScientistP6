@@ -18,7 +18,7 @@ Perl6 module inspired by https://github.com/github/scientist ( http://githubengi
 	);
 
 
-    my $answer = $experiment->run;
+    my $answer = $experiment.run;
 
     say "The number ten is $answer";
     warn 'There was a mismatch between control and candidate'
@@ -83,6 +83,26 @@ This code will be executed and discarded when the experiment is run.
 =back
 
 =head1 Extending Publish
+
+To automate reporting of experiement results, you will want to write your own .publish() method. Publish is called by .run() and has has the %result hash available.
+
+A typical example would be to push timing information to Statsd or a database.
+
+    use Scientist;
+
+    class MyScientist is Scientist {
+        has $.test_value is rw;
+        method publish (%result){
+            # Do Stuff...
+        }
+    }
+
+    my $experiment = MyScientist.new(
+        experiment => 'Tree',
+        enabled => True,
+        try => sub {return 99},
+        use => sub {return 88},
+    );
 
 =head1 AUTHOR
 
