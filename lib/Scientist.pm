@@ -20,19 +20,22 @@ method result {
 method run {
     return &.use.() unless ?$.enabled;
 
-    my ( $control, $candidate );
-    my $control_duration;
+    %result = (
+        context    => %.context,
+        experiment => $.experiment,
+    );
+
+    my ($candidate, $control);
     my $run_control = sub {
         my $start = now;
         $control = &.use.();
-        $control_duration = now - $start;
+        %result{'control'}{'duration'} = now - $start;
     };
 
-    my $candidate_duration;
     my $run_candidate = sub {
         my $start = now;
         $candidate = &.try.();
-        $candidate_duration = now - $start;
+        %result{'candidate'}{'duration'} = now - $start;
     };
 
     if ( rand > 0.5 ) {
@@ -43,15 +46,7 @@ method run {
         $run_candidate.();
         $run_control.();
     }
-
-    %result = (
-        context    => %.context,
-        experiment => $.experiment,
-        mismatched => $control !eqv $candidate,
-        candidate  => duration => $candidate_duration,
-        control    => duration => $control_duration,
-    );
+    %result{'mismatched'} = $control !eqv $candidate;
 
     return $control;
-
 }
