@@ -30,4 +30,7 @@ $test.use = sub { return { c => [1,2,3,4,5], a=>'alpha', b=>'beta' } };
 $result = $test.run;
 is $test.result{'mismatched'}, False, 'Complex data match identified correctly';
 
+ok $test.result{'candidate'}{'duration'}.Real > 0, 'Candidate Duration returned > 0';
+ok $test.result{'control'}{'duration'}.Real > 0, 'Control Duration returned > 0';
+
 done-testing;
