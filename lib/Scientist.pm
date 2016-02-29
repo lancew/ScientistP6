@@ -26,7 +26,9 @@ method run {
     my ($candidate, $control);
     my $run_control = sub {
         my $start = now;
-        $control = &.use.();
+        try {
+            $control = &.use.();
+        }
         %result{'control'}{'duration'} = now - $start;
     };
 
