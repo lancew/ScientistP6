@@ -41,7 +41,7 @@ method run {
     %result = (
         context    => %.context,
         experiment => $.experiment,
-        mismatched => !($control eqv $candidate),
+        mismatched => $control !eqv $candidate,
     );
 
     return $control;
