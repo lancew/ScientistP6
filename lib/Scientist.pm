@@ -26,15 +26,15 @@ method run {
     my ($candidate, $control);
     my $run_control = sub {
         my $start = now;
-        try {
-            $control = &.use.();
-        }
+        $control = &.use.();
         %result{'control'}{'duration'} = now - $start;
     };
 
     my $run_candidate = sub {
         my $start = now;
-        $candidate = &.try.();
+        try {
+            $candidate = &.try.();
+        }
         %result{'candidate'}{'duration'} = now - $start;
     };
 
