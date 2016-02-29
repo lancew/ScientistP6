@@ -11,29 +11,18 @@ Perl6 module inspired by https://github.com/github/scientist ( http://githubengi
 
     use Scientist;
 
-    sub old_code {
-        return 10;
-    }
+	my $experiment = Scientist.new(
+		experiment => 'Tree',
+		try => sub {return 99},
+		use => sub {return 10},
+	);
 
-    sub new_code {
-        return 20;
-    }
-
-    my $experiment = Scientist->new(
-        experiment => 'MyTest',
-        use => \&old_code,
-        try => \&new_code,
-    );
 
     my $answer = $experiment->run;
 
     say "The number ten is $answer";
     warn 'There was a mismatch between control and candidate'
-        if $experiment->result->{'mismatched'};
-
-    say 'Timings:';
-    say 'Control code:   ', $experiment->result->{control}{duration}, ' microseconds';
-    say 'Candidate code: ', $experiment->result->{candidate}{duration}, ' microseconds';
+        if $test.result{'mismatched'};
 
 =head1 Introduction
 
