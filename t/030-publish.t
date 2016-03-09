@@ -7,7 +7,7 @@ plan 1;
 
 class MyScientist is Scientist {
     has $.test_value is rw;
-    method publish (%result){
+    method publish {
         $.test_value = 101;
     }
 }
