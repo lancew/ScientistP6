@@ -3,6 +3,7 @@ unit class Scientist;
 has      %.context    is rw;
 has Bool $.enabled    is rw = True;
 has Str  $.experiment is rw;
+has      %!result;
 has      &.try        is rw;
 has      &.use        is rw is required;
 
@@ -10,15 +11,12 @@ method publish {
     # Requires populating to be useful.
 }
 
-my %result;
-method result {
-    return %result;
-}
+method result { Map.new(%!result) }
 
 method run {
     return &.use.() unless $.enabled;
 
-    %result = (
+    %!result = (
         context    => %.context,
         experiment => $.experiment,
     );
@@ -27,7 +25,7 @@ method run {
     my $run_control = sub {
         my $start = now;
         $control = &.use.();
-        %result<control><duration> = now - $start;
+        %!result<control><duration> = now - $start;
     };
 
     my $run_candidate = sub {
@@ -35,7 +33,7 @@ method run {
         try {
             $candidate = &.try.();
         }
-        %result<candidate><duration> = now - $start;
+        %!result<candidate><duration> = now - $start;
     };
 
     if ( rand > 0.5 ) {
@@ -46,7 +44,7 @@ method run {
         $run_candidate.();
         $run_control.();
     }
-    %result<mismatched> = $control !eqv $candidate;
+    %!result<mismatched> = $control !eqv $candidate;
 
     $.publish();
 
