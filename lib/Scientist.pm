@@ -16,7 +16,7 @@ method result {
 }
 
 method run {
-    return &.use.() unless ?$.enabled;
+    return &.use.() unless $.enabled;
 
     %result = (
         context    => %.context,
