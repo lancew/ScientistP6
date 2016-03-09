@@ -6,7 +6,7 @@ has Str  $.experiment is rw;
 has      &.try        is rw;
 has      &.use        is rw is required;
 
-method publish (%result) {
+method publish {
     # Requires populating to be useful.
 }
 
@@ -48,7 +48,7 @@ method run {
     }
     %result<mismatched> = $control !eqv $candidate;
 
-    $.publish(%result);
+    $.publish();
 
     return $control;
 }

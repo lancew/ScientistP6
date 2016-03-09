@@ -86,7 +86,7 @@ This code will be executed and discarded when the experiment is run.
 
 =head1 Extending Publish
 
-To automate reporting of experiement results, you will want to write your own .publish() method. Publish is called by .run() and has has the %result hash available.
+To automate reporting of experiement results, you will want to write your own .publish() method. Publish is called by .run().
 
 A typical example would be to push timing information to Statsd or a database.
 
@@ -94,7 +94,7 @@ A typical example would be to push timing information to Statsd or a database.
 
     class MyScientist is Scientist {
         has $.test_value is rw;
-        method publish (%result){
+        method publish {
             # Do Stuff...
         }
     }
