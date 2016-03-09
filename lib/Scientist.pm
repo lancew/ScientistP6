@@ -1,10 +1,10 @@
 unit class Scientist;
 
-has %.context is rw;
-has Bool $.enabled is rw;
-has $.experiment is rw;
-has &.try is rw;
-has &.use is rw;
+has      %.context    is rw;
+has Bool $.enabled    is rw = True;
+has Str  $.experiment is rw;
+has      &.try        is rw;
+has      &.use        is rw is required;
 
 method publish (%result) {
     # Requires populating to be useful.
