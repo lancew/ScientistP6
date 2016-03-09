@@ -14,24 +14,24 @@ method publish {
 method result { Map.new(%!result) }
 
 method run {
-    return &.use.() unless $.enabled;
+    return &.use.() unless $!enabled;
 
     %!result = (
-        context    => %.context,
-        experiment => $.experiment,
+        context    => %!context,
+        experiment => $!experiment,
     );
 
     my ($candidate, $control);
     my $run_control = sub {
         my $start = now;
-        $control = &.use.();
+        $control = &!use.();
         %!result<control><duration> = now - $start;
     };
 
     my $run_candidate = sub {
         my $start = now;
         try {
-            $candidate = &.try.();
+            $candidate = &!try.();
         }
         %!result<candidate><duration> = now - $start;
     };
