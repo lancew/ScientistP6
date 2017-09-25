@@ -11,5 +11,5 @@
     "depends" : [ ],
     "resources" : [ ],
     "source-url" : "git://github.com/lancew/ScientistP6.git",
-    "tags" : [ "utils", "devel" ],
+    "tags" : [ "utils", "devel" ]
 }
