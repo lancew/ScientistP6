@@ -36,7 +36,7 @@ method run {
         %!result<candidate><duration> = now - $start;
     };
 
-    if ( rand > 0.5 ) {
+    if Bool.pick {
         $run_control.();
         $run_candidate.();
     }
