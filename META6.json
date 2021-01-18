@@ -8,6 +8,7 @@
     "provides" : {
         "Scientist" : "lib/Scientist.pm"
     },
+    "auth" : "zef:lancew",
     "depends" : [ ],
     "resources" : [ ],
     "source-url" : "git://github.com/lancew/ScientistP6.git",
