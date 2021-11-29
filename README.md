@@ -4,9 +4,7 @@ Perl6 module inspired by https://github.com/github/scientist ( http://githubengi
 
 See also: https://github.com/MadcapJake/Test-Lab For a different take on the same idea.
 
-<a href=https://travis-ci.org/lancew/ScientistP6><img src=https://api.travis-ci.org/lancew/ScientistP6.svg></a>
-<a href=https://coveralls.io/github/lancew/ScientistP6><img src=https://coveralls.io/repos/lancew/ScientistP6/badge.svg></a>
-<a href=https://github.com/lancew/ScientistP6/issues><img src=https://img.shields.io/github/issues/lancew/ScientistP6.svg></a>
+[![test](https://github.com/lancew/ScientistP6/actions/workflows/test.yml/badge.svg)](https://github.com/lancew/ScientistP6/actions/workflows/test.yml)
 
 # SYNOPSIS
 
