@@ -2,7 +2,7 @@
     - README ported to MD (Thanks JRaspass)
     - Move from Travis to GitHub actions for automated tests
     - Reword text from Perl6 to Raku in README, etc
-    - Remove reference to the logo
+    - Remove reference to the logo Including the logotype dir
 
 0.002 2016-02-29
     - Publish() added plus some cleanup.
