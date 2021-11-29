@@ -1,6 +1,6 @@
 # DESCRIPTION
 
-Perl6 module inspired by https://github.com/github/scientist ( http://githubengineering.com/scientist/ )
+Raku module inspired by https://github.com/github/scientist ( http://githubengineering.com/scientist/ )
 
 See also: https://github.com/MadcapJake/Test-Lab For a different take on the same idea.
 
@@ -29,7 +29,7 @@ warn 'There was a mismatch between control and candidate'
 
 This module is inspired by the Scientist ruby code released by GitHub under the MIT license in 2015/2016.
 
-In February 2016 I started writing the Perl5 module to bring similar ideas to Perl. Later I started this module to apply same ideas in Perl6.
+In February 2016 I started writing the Perl5 module to bring similar ideas to Perl. Later I started this module to apply same ideas in Raku.
 
 Please get involved in this module; contact lancew@cpan.org with ideas, suggestions; support, etc.
 
