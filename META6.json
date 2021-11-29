@@ -2,11 +2,11 @@
     "perl" : "6.*",
     "name" : "Scientist",
     "license" : "MIT",
-    "version" : "0.0.2",
+    "version" : "0.0.3",
     "description" : "Raku Scientist - Test new code against old.",
     "authors" : [ "Lance Wicks" ],
     "provides" : {
-        "Scientist" : "lib/Scientist.pm"
+        "Scientist" : "lib/Scientist.rakumod"
     },
     "auth" : "zef:lancew",
     "depends" : [ ],
