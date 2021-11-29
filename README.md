@@ -1,32 +1,33 @@
-=head1 DESCRIPTION
+# DESCRIPTION
 
 Perl6 module inspired by https://github.com/github/scientist ( http://githubengineering.com/scientist/ )
 
 See also: https://github.com/MadcapJake/Test-Lab For a different take on the same idea.
 
-=for HTML
 <a href=https://travis-ci.org/lancew/ScientistP6><img src=https://api.travis-ci.org/lancew/ScientistP6.svg></a>
 <a href=https://coveralls.io/github/lancew/ScientistP6><img src=https://coveralls.io/repos/lancew/ScientistP6/badge.svg></a>
 <a href=https://github.com/lancew/ScientistP6/issues><img src=https://img.shields.io/github/issues/lancew/ScientistP6.svg></a>
 
-=head1 SYNOPSIS
+# SYNOPSIS
 
-    use Scientist;
+```raku
+use Scientist;
 
-	my $experiment = Scientist.new(
-		experiment => 'Tree',
-		try => sub {return 99},
-		use => sub {return 10},
-	);
+my $experiment = Scientist.new(
+    experiment => 'Tree',
+    try => sub {return 99},
+    use => sub {return 10},
+);
 
 
-    my $answer = $experiment.run;
+my $answer = $experiment.run;
 
-    say "The number ten is $answer";
-    warn 'There was a mismatch between control and candidate'
-        if $test.result{'mismatched'};
+say "The number ten is $answer";
+warn 'There was a mismatch between control and candidate'
+    if $test.result{'mismatched'};
+```
 
-=head1 Introduction
+# Introduction
 
 This module is inspired by the Scientist ruby code released by GitHub under the MIT license in 2015/2016.
 
@@ -36,81 +37,77 @@ Please get involved in this module; contact lancew@cpan.org with ideas, suggesti
 
 This code is also released under the MIT license to match the original Ruby implementation.
 
-=head1 Methods / Attributes
+# Methods / Attributes
 
-=over
-
-=item context(<HASHREF>)
+## context(<HASHREF>)
 
 Provide contextual information for the experiment; will be returned in the result set.
 
 Should be a hashref
 
-
-=item enabled(<TRUE>|<FALSE>)
+## enabled(<TRUE>|<FALSE>)
 
 DEFAULT : TRUE
 Boolean switch to enable or disable the experiment. If disabled the experiment will only return
 the control code (use) result. The candidate code (try) will NOT be executed. The results set will
 not be populated.
 
-
-=item experiment(<STRING>)
+## experiment(<STRING>)
 
 Simply the name of the experiment included in the result set.
 
-=item publish
+## publish
 
 Publish is a method called by ->run().
 
 Scientist is design so that you create your own personalised My::Scientist module and extend publish to do what you want/need.
 For example push timing and mismathc information to Statsd.
 
-=item use(<CODEREF>)
+## use(<CODEREF>)
 
 Control code to be included in the experiment.
 This code will be executed and returned when the experiment is run.
 NB: This code is run and returned even if experiment enabed=false.
 
-=item run()
+## run()
 
 This method executes the control (use) code and if experiment enabled will also run the candidate (try)
 code. The control and candidate code is run in random order.
 
-=item try(<CODEREF>)
+## try(<CODEREF>)
 
 Candidate code to be included in the experiment.
 This code will be executed and discarded when the experiment is run.
 
-=back
-
-=head1 Extending Publish
+# Extending Publish
 
 To automate reporting of experiement results, you will want to write your own .publish() method. Publish is called by .run().
 
 A typical example would be to push timing information to Statsd or a database.
 
-    use Scientist;
+```raku
+use Scientist;
 
-    class MyScientist is Scientist {
-        has $.test_value is rw;
-        method publish {
-            # Do Stuff...
-        }
+class MyScientist is Scientist {
+    has $.test_value is rw;
+    method publish {
+        # Do Stuff...
     }
+}
 
-    my $experiment = MyScientist.new(
-        experiment => 'Tree',
-        enabled => True,
-        try => sub {return 99},
-        use => sub {return 88},
-    );
+my $experiment = MyScientist.new(
+    experiment => 'Tree',
+    enabled => True,
+    try => sub {return 99},
+    use => sub {return 88},
+);
+```
 
-=head1 AUTHOR
+# AUTHOR
 
 Lance Wicks <lancew@cpan.org>
 
-=head1 COPYRIGHT AND LICENSE
+# COPYRIGHT AND LICENSE
 
 This software is Copyright (c) 2016 by Lance Wicks.
 
@@ -145,7 +142,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-=head1 SEE ALSO
+# SEE ALSO
 
 http://www.infoq.com/news/2016/02/github-scientist-refactoring
 
@@ -157,6 +154,6 @@ https://github.com/ziyasal/scientist.js
 
 http://tech-blog.cv-library.co.uk/2016/03/03/introducing-scientist/
 
-=head1 Logo
+# Logo
 
 The logo is licensed under the under the Creative Commons Attribution 3.0 United States license and is from https://commons.wikimedia.org/wiki/File:Farm-Fresh_flask.png
