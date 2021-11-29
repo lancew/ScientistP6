@@ -152,6 +152,3 @@ https://github.com/ziyasal/scientist.js
 
 http://tech-blog.cv-library.co.uk/2016/03/03/introducing-scientist/
 
-# Logo
-
-The logo is licensed under the under the Creative Commons Attribution 3.0 United States license and is from https://commons.wikimedia.org/wiki/File:Farm-Fresh_flask.png
