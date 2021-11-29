@@ -1,3 +1,9 @@
+0.003 2021-11-29
+    - README ported to MD (Thanks JRaspass)
+    - Move from Travis to GitHub actions for automated tests
+    - Reword text from Perl6 to Raku in README, etc
+    - Remove reference to the logo
+
 0.002 2016-02-29
     - Publish() added plus some cleanup.
 
