@@ -8,6 +8,19 @@ See also: https://github.com/MadcapJake/Test-Lab For a different take on the sam
 
 # SYNOPSIS
 
+```mermaid
+flowchart LR
+    rak[$exp.run] -->|execute| use(Control Code)
+        --> compare(Compare Result)
+
+    rak -->|execute| try(Candidate Code)
+        --> compare(Compare Result)
+
+    use --> return[Return Result]
+
+    compare -->|publish| Metrics
+```
+
 ```raku
 use Scientist;
 
@@ -16,7 +29,6 @@ my $experiment = Scientist.new(
     try => sub {return 99},
     use => sub {return 10},
 );
-
 
 my $answer = $experiment.run;
 
