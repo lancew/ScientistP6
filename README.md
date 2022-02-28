@@ -10,11 +10,12 @@ See also: https://github.com/MadcapJake/Test-Lab For a different take on the sam
 
 ```mermaid
 flowchart LR
-    rak[$exp.run] -->|execute| use(Control Code)
-        --> compare(Compare Result)
+    raku[$exp.run]
+         -->|execute| use(Control Code)
+         --> compare(Compare Result)
 
-    rak -->|execute| try(Candidate Code)
-        --> compare(Compare Result)
+    raku -->|execute| try(Candidate Code)
+         --> compare(Compare Result)
 
     use --> return[Return Result]
 
