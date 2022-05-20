@@ -1,3 +1,5 @@
+0.004 2022-05-20
+    - Small updates (JRaspss again! Thanks)
 0.003 2021-11-29
     - README ported to MD (Thanks JRaspass)
     - Move from Travis to GitHub actions for automated tests
