@@ -1,8 +1,8 @@
 # DESCRIPTION
 
-Raku module inspired by https://github.com/github/scientist ( http://githubengineering.com/scientist/ )
+Raku module inspired by [GitHub's Scientist](https://github.com/github/scientist) ([announcement](https://github.blog/2016-02-03-scientist/)).
 
-See also: https://github.com/MadcapJake/Test-Lab For a different take on the same idea.
+See also: [Test::Lab](https://raku.land/github:MadcapJake/Test::Lab) for a different take on the same idea.
 
 [![test](https://github.com/lancew/ScientistP6/actions/workflows/test.yml/badge.svg)](https://github.com/lancew/ScientistP6/actions/workflows/test.yml)
 
